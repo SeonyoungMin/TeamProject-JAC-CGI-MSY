@@ -39,7 +39,7 @@
     </filter-mapping>
 
     <!-- ===== Spring Security Filter Chain ===== -->
-    <filter>
+   <!--  <filter>
         <filter-name>springSecurityFilterChain</filter-name>
         <filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
     </filter>
@@ -50,7 +50,7 @@
         <dispatcher>ERROR</dispatcher>
         <dispatcher>ASYNC</dispatcher>
     </filter-mapping>
-
+ -->
     <!-- ===== DispatcherServlet ===== -->
     <servlet>
         <servlet-name>appServlet</servlet-name>
