@@ -15,7 +15,7 @@ public class TestController {
 	@Autowired
 	private DataSource dataSource; // root-context.xml에 있는 DB 연결 정보 가져오기
 
-	@RequestMapping(value = "/test", produces = "text/plain; charset=UTF-8")
+	@RequestMapping("/test")
 	@ResponseBody
 	public String test() {
 		// 1. 실행되는지 확인용 콘솔 출력
