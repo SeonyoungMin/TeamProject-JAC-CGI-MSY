@@ -18,24 +18,24 @@ public class TestController {
 	@RequestMapping(value = "/test", produces = "text/plain; charset=UTF-8")
 	@ResponseBody
 	public String test() {
-		// 1. 실행되는지 확인용 콘솔 출력
-		System.out.println("--- 컨트롤러 접속 성공 ---");
+		System.out.println("--- 모든 멤버 조회 시작 ---");
+
+		// 여러 명의 이름을 합쳐서 담을 변수
+		String allNames = "";
 
 		try (Connection conn = dataSource.getConnection();
 				PreparedStatement pstmt = conn.prepareStatement("SELECT name FROM test_member");
 				ResultSet rs = pstmt.executeQuery()) {
 
-			if (rs.next()) {
+			// if 대신 while을 쓰면 데이터가 끝날 때까지 계속 반복합니다!
+			while (rs.next()) {
 				String name = rs.getString("name");
-
-				// 2. DB에서 가져온 이름 콘솔에 찍기
-				System.out.println("DB에서 가져온 이름: " + name);
-
-				return "DB Name: " + name; // 브라우저 화면에 출력
-			} else {
-				System.out.println("데이터가 없습니다.");
-				return "No Data in Table";
+				System.out.println("가져온 이름: " + name);
+				allNames += name + ", "; // 이름들을 문자열로 합치기
 			}
+
+			return "모든 멤버: " + allNames;
+
 		} catch (Exception e) {
 			e.printStackTrace();
 			return "Error: " + e.getMessage();
