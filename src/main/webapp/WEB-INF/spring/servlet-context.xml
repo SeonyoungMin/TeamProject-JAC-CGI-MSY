@@ -12,7 +12,7 @@
                  http://www.springframework.org/schema/context/spring-context.xsd">
 
     <!-- ===== Controller Component Scan ===== -->
-    <context:component-scan base-package="com.team404.minimarket">
+    <context:component-scan base-package="com.team404">
         <context:include-filter type="annotation"
                                 expression="org.springframework.stereotype.Controller"/>
         <context:include-filter type="annotation"
