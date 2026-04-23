@@ -41,4 +41,4 @@ upload/
 # Secrets
 ##################################
 **/db.properties
-!**/db.properties.example
+**/db.properties.example
